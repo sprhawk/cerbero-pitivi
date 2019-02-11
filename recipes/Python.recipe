@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'Python'
     version = '3.6.8'
-    licenses = [License.PUBLIC_DOMAIN]
+    licenses = [{License.Misc: ['README.rst', 'LICENSE']}]
     stype = SourceType.TARBALL
     url = 'https://www.python.org/ftp/python/%(version)s/Python-%(version)s.tar.xz'
     # tarball_checksum = 'd83fe8ce51b1bb48bbcf0550fd265b9a75cdfdfa93f916f9e700aef8444bf1bb' # Python-3.7.2

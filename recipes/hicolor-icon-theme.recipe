@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'hicolor-icon-theme'
     version = '0.17'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus]
 
     # use_system_libs = True
     stype = SourceType.TARBALL

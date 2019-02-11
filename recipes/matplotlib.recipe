@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'matplotlib'
     version = '3.0.2'
-    licenses = [License.BSD]
+    licenses = [{License.BSD: ['README.rst', 'LICENSE/LICENSE']}]
 
     deps = [
         'Python',

@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'pycairo'
     version = '1.18.0'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus, License.MPLv1_1]
 
     deps = [
         'Python',

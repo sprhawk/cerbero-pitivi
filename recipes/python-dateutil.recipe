@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'python-dateutil'
     version = '2.7.5'
-    licenses = [License.BSD]
+    licenses = [License.Apachev2]
 
     deps = [
         'Python',

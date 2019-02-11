@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'cycler'
     version = '0.10.0'
-    licenses = [License.BSD]
+    licenses = [{License.BSD : ['LICENSE']}]
 
     deps = [
         'Python',

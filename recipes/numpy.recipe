@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'numpy'
     version = '1.15.4'
-    licenses = [License.BSD]
+    licenses = [{License.BSD: ['LICENSE.txt']}]
 
     deps = [
         'Python',

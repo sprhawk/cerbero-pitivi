@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'adwaita-icon-theme'
     version = '3.30.1'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus]
 
     # use_system_libs = True
     stype = SourceType.TARBALL

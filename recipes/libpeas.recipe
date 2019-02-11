@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'libpeas'
     version = '1.22.0'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus]
     deps = [
         'gtk+',
         'Python',

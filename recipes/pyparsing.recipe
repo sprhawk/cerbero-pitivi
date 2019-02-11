@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'pyparsing'
     version = '2.3.0'
-    licenses = [License.MIT]
+    licenses = [{License.MIT: ['LICENSE']}]
 
     deps = [
         'Python',

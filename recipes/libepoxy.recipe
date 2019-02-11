@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'libepoxy'
     version = '1.5.3'
-    licenses = [License.MIT]
+    licenses = [{License.MIT: ['COPYING']}]
     deps = [
         ]
 

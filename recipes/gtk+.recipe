@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'gtk+'
     version = '3.24.3'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus]
     deps = [
         'graphene',
         'pango',

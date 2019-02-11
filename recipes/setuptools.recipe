@@ -6,7 +6,7 @@ class Recipe(recipe.Recipe):
 
     name = 'setuptools'
     version = '40.6.3'
-    licenses = [License.MIT]
+    licenses = [{License.MIT: ['LICENSE']}]
 
     deps = [
         'Python',

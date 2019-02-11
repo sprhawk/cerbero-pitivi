@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
 
     name = 'pygobject'
     version = '3.31.2'
-    licenses = [License.LGPL]
+    licenses = [License.LGPLv2_1Plus]
 
     deps = [
         'Python',
