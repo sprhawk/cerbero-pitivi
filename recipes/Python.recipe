@@ -13,10 +13,8 @@ class Recipe(recipe.Recipe):
 
     deps = ['openssl', 'gettext-m4']
 
-    configure_tpl = './configure --prefix=%(prefix)s \
-                      --enable-shared \
-                      --with-pydebug \
-                      --with-dtrace'
+    configure_tpl = './configure --prefix=%(prefix)s'
+    
     def prepare(self):
         if self.config.target_platform != Platform.LINUX:
             self.deps.append('proxy-libintl')

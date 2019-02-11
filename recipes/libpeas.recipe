@@ -1,0 +1,26 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'libpeas'
+    version = '1.22.0'
+    licenses = [License.LGPL]
+    deps = [
+        'gtk+',
+        'Python',
+        'pygobject',
+        ]
+
+    # use_system_libs = True
+    stype = SourceType.TARBALL
+    btype = BuildType.MAKEFILE
+
+    url = 'https://download.gnome.org/sources/libpeas/1.22/%(name)s-%(version)s.tar.xz'
+    tarball_checksum = '5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962'
+
+    patches = [name + '/0001-remove-ld-flag-to-pass-build-on-macOS.patch']
+    configure_tpl = './configure --prefix=%(prefix)s \
+                     --enable-shared  \
+                    --disable-gtk-doc-html --enable-gtk --enable-python3 --disable-python2'
+

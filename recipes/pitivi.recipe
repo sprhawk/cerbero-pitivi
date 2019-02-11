@@ -19,7 +19,8 @@ class Recipe(recipe.Recipe):
         'libjpeg-turbo',
         'gtk+',
         'hicolor-icon-theme',
-        'adwaita-icon-theme'
+        'adwaita-icon-theme',
+        'libpeas'
         ]
 
     patches = [name + '/0001-meson-generate-renderer.so-on-macos-instead-of-dylib.patch']
