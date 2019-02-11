@@ -1,0 +1,25 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+import subprocess
+
+class Recipe(recipe.Recipe):
+
+    name = 'pyparsing'
+    version = '2.3.0'
+    licenses = [License.MIT]
+
+    deps = [
+        'Python',
+    ]
+
+    stype = SourceType.TARBALL
+
+    url = 'https://files.pythonhosted.org/packages/d0/09/3e6a5eeb6e04467b737d55f8bba15247ac0876f98fae659e58cd744430c6/pyparsing-2.3.0.tar.gz'
+    tarball_checksum = 'f353aab21fd474459d97b709e527b5571314ee5f067441dc9f88e33eecd96592'
+
+    btype = BuildType.CUSTOM
+
+    def install(self):
+        prefix = self.config.prefix
+        subprocess.check_call([self.config.python_exe, 'setup.py', 'install', '--prefix', prefix],
+                cwd=self.build_dir)

@@ -1,0 +1,25 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+import subprocess
+
+class Recipe(recipe.Recipe):
+
+    name = 'python-dateutil'
+    version = '2.7.5'
+    licenses = [License.BSD]
+
+    deps = [
+        'Python',
+    ]
+
+    stype = SourceType.TARBALL
+
+    url = 'https://files.pythonhosted.org/packages/0e/01/68747933e8d12263d41ce08119620d9a7e5eb72c876a3442257f74490da0/python-dateutil-2.7.5.tar.gz'
+    tarball_checksum = '88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02'
+
+    btype = BuildType.CUSTOM
+
+    def install(self):
+        prefix = self.config.prefix
+        subprocess.check_call([self.config.python_exe, 'setup.py', 'install', '--prefix', prefix],
+                cwd=self.build_dir)

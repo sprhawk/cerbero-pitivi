@@ -1,0 +1,38 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'pitivi'
+    version = '0.999.0'
+    licenses = [License.LGPL]
+    deps = [
+        'pygobject',
+        'gst-python',
+        'gst-editing-services-1.0',
+        'gst-libav-1.0',
+        'gst-plugins-bad-1.0',
+        'gst-plugins-ugly-1.0',
+        'gst-transcoder',
+        'numpy',
+        'matplotlib',
+        'libjpeg-turbo',
+        'gtk+',
+        'hicolor-icon-theme',
+        'adwaita-icon-theme'
+        ]
+
+    patches = [name + '/0001-meson-generate-renderer.so-on-macos-instead-of-dylib.patch']
+        # use_system_libs = True
+    stype = SourceType.GIT
+    btype = BuildType.MESON
+
+    remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git',
+                'local': '/Users/hongbo/Developer/Programs/src/pitivi'}
+    commit = 'local/0.999.0'
+
+    files_bins = ['pitivi']
+    files_lang = ['pitivi']
+    files_pitivi = ['lib/pitivi/python/pitivi',
+                    'share/pitivi/',
+                    'share/applications/pitivi.desktop']

@@ -1,0 +1,23 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'Python'
+    version = '3.6.8'
+    licenses = [License.PUBLIC_DOMAIN]
+    stype = SourceType.TARBALL
+    url = 'https://www.python.org/ftp/python/%(version)s/Python-%(version)s.tar.xz'
+    # tarball_checksum = 'd83fe8ce51b1bb48bbcf0550fd265b9a75cdfdfa93f916f9e700aef8444bf1bb' # Python-3.7.2
+    tarball_checksum = '35446241e995773b1bed7d196f4b624dadcadc8429f26282e756b2fb8a351193' # Python-3.6.8
+
+    deps = ['openssl', 'gettext-m4']
+
+    configure_tpl = './configure --prefix=%(prefix)s \
+                      --enable-shared \
+                      --with-pydebug \
+                      --with-dtrace'
+    def prepare(self):
+        if self.config.target_platform != Platform.LINUX:
+            self.deps.append('proxy-libintl')
+        self.append_env('LDFLAGS', '-lintl')

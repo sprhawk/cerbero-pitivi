@@ -1,0 +1,33 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'gtk+'
+    version = '3.24.3'
+    licenses = [License.LGPL]
+    deps = [
+        'graphene',
+        'pango',
+        'glib',
+        'cairo',
+        'gdk-pixbuf',
+        'libepoxy',
+        'atk',
+        'gst-plugins-bad-1.0',
+        ]
+
+    # use_system_libs = True
+    stype = SourceType.TARBALL
+    btype = BuildType.MAKEFILE
+
+    url = 'https://download.gnome.org/sources/gtk+/3.24/%(name)s-%(version)s.tar.xz'
+    tarball_checksum = '5708fa534d964b1fb9a69d15758729d51b9a438471d4612dc153f595904803bd'
+
+    configure_tpl = './configure --prefix=%(prefix)s \
+                    --enable-static --enable-shared --enable-debug \
+                    --disable-gtk-doc-html --disable-man --enable-introspection'
+
+    def prepare(self):
+        if self.config.target_platform == Platform.DARWIN:
+            self.configure_tpl += ' --disable-x11-backend --enable-quartz-backend'
