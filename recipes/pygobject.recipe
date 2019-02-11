@@ -1,0 +1,19 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'pygobject'
+    version = '3.31.2'
+    licenses = [License.LGPL]
+
+    deps = [
+        'Python',
+        'pycairo',
+        'gobject-introspection'
+    ]
+
+    stype = SourceType.GIT
+    remotes = {'origin': 'https://gitlab.gnome.org/GNOME/%(name)s.git'}
+    commit = "3.31.2"
+    btype = BuildType.MESON

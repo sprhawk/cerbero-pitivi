@@ -1,0 +1,25 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+import subprocess
+
+class Recipe(recipe.Recipe):
+
+    name = 'numpy'
+    version = '1.15.4'
+    licenses = [License.BSD]
+
+    deps = [
+        'Python',
+    ]
+
+    stype = SourceType.TARBALL
+
+    url = 'https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip'
+    tarball_checksum = '3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7'
+
+    btype = BuildType.CUSTOM
+
+    def install(self):
+        prefix = self.config.prefix
+        subprocess.check_call(['python3', 'setup.py', 'build', 'install', '--prefix', prefix],
+                cwd=self.build_dir)

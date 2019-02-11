@@ -1,0 +1,16 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'libepoxy'
+    version = '1.5.3'
+    licenses = [License.MIT]
+    deps = [
+        ]
+
+    stype = SourceType.TARBALL
+    btype = BuildType.MESON
+
+    url = 'https://github.com/anholt/libepoxy/releases/download/%(version)s/%(name)s-%(version)s.tar.xz'
+    tarball_checksum = '002958c5528321edd53440235d3c44e71b5b1e09b9177e8daf677450b6c4433d'

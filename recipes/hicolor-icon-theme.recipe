@@ -1,0 +1,17 @@
+# -*- Mode: Python -*- vi:si:et:sw=4:sts=4:ts=4:syntax=python
+
+
+class Recipe(recipe.Recipe):
+
+    name = 'hicolor-icon-theme'
+    version = '0.17'
+    licenses = [License.LGPL]
+
+    # use_system_libs = True
+    stype = SourceType.TARBALL
+    btype = BuildType.MAKEFILE
+    url = 'https://icon-theme.freedesktop.org/releases/%(name)s-%(version)s.tar.xz'
+    tarball_checksum = '317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8'
+
+    configure_tpl = './configure --prefix=%(prefix)s'
+

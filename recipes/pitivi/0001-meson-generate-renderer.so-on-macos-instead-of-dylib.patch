@@ -1,0 +1,42 @@
+From 6345351cad614670bb589da64dbf3387fdfef7e3 Mon Sep 17 00:00:00 2001
+From: sprhawk <465558+sprhawk@users.noreply.github.com>
+Date: Mon, 11 Feb 2019 11:18:55 +0800
+Subject: [PATCH] meson generate renderer.so on macos instead of dylib
+
+---
+ meson.build | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/meson.build b/meson.build
+index 17a7312d..cbb09677 100644
+--- a/meson.build
++++ b/meson.build
+@@ -4,6 +4,7 @@ python = find_program('python3')
+ intltool_merge = find_program('intltool-merge')
+ itstool = find_program('itstool')
+ msgfmt = find_program('msgfmt')
++host_system = host_machine.system()
+ 
+ python_dep = dependency('python3', version : '>= 3.3')
+ 
+@@ -56,10 +57,17 @@ cdata.set('GITVERSION', GITVERSION)
+ cdata.set('VERSION', meson.project_version())
+ cdata.set('BUILDDIR', meson.current_build_dir())
+ 
++module_suffix = ''
++# Python cannot import default .dylib, changed suffix to .so instead
++if ['darwin', 'ios'].contains(host_system)
++    module_suffix = 'so'
++endif
++
+ coptimizations = shared_library('renderer',
+     'pitivi/coptimizations/renderer.c',
+     dependencies: [gst_dep, python_dep, pycairo_dep, cairo_dep],
+     name_prefix : '',
++    name_suffix: module_suffix,
+     install: true,
+     install_dir: get_option('libdir') + '/pitivi/python/pitivi/timeline')
+ 
+-- 
+2.19.1
+
