@@ -19,17 +19,15 @@ class Recipe(recipe.Recipe):
         'libjpeg-turbo',
         'gtk+',
         'hicolor-icon-theme',
-        'adwaita-icon-theme'
+        'adwaita-icon-theme',
+        'libpeas'
         ]
 
-    patches = [name + '/0001-meson-generate-renderer.so-on-macos-instead-of-dylib.patch']
-        # use_system_libs = True
     stype = SourceType.GIT
     btype = BuildType.MESON
 
-    remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git',
-                'local': '/Users/hongbo/Developer/Programs/src/pitivi'}
-    commit = 'local/0.999.0'
+    remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git'}
+    commit = 'origin/master'
 
     files_bins = ['pitivi']
     files_lang = ['pitivi']

@@ -1,0 +1,25 @@
+From 76b629ab4c11bc4d4b86ffb06b1b2b8ae0f8e9a7 Mon Sep 17 00:00:00 2001
+From: sprhawk <465558+sprhawk@users.noreply.github.com>
+Date: Mon, 11 Feb 2019 19:31:43 +0800
+Subject: [PATCH] remove ld flag to pass build on macOS
+
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index 5396773..8847d6a 100755
+--- a/configure
++++ b/configure
+@@ -14126,7 +14126,7 @@ $as_echo "yes" >&6; }
+                 PYTHON3_BIN="$PYTHON"
+                 PYTHON3_CFLAGS=`${PYTHON3_CONFIG} --includes`
+                 PYTHON3_LIBS=`${PYTHON3_CONFIG} --libs`
+-                PYTHON3_LDFLAGS=`${PYTHON3_CONFIG} --ldflags`
++                PYTHON3_LDFLAGS=`${PYTHON3_CONFIG} --ldflags | sed 's/\(-Wl,-stack_size.\+\?\) \+\?\(-\)/\2/' -`
+ 
+ 
+ 
+-- 
+2.19.1
+
