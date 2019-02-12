@@ -27,6 +27,7 @@ class Recipe(recipe.Recipe):
     stype = SourceType.TARBALL
     btype = BuildType.MESON
     url = "https://gitlab.gnome.org/GNOME/pitivi/-/archive/0.999.0/pitivi-0.999.0.tar.bz2"
+    tarball_checksum = 'a9d6b9fd0f4f5e8f697f31f76e22f22bdeef4386e6d1efd1daf5695f37173e50'
     # remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git'}
     # commit = 'local/0.999.0'
 
