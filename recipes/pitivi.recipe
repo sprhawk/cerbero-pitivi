@@ -4,7 +4,7 @@
 class Recipe(recipe.Recipe):
 
     name = 'pitivi'
-    version = '0.999.0'
+    version = 'master'
     licenses = [License.LGPLv2_1Plus]
     deps = [
         'pygobject',
