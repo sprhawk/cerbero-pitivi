@@ -24,12 +24,11 @@ class Recipe(recipe.Recipe):
 
     patches = [name + '/0001-meson-generate-renderer.so-on-macos-instead-of-dylib.patch']
         # use_system_libs = True
-    stype = SourceType.GIT
+    stype = SourceType.TARBALL
     btype = BuildType.MESON
-
-    remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git',
-                'local': '/Users/hongbo/Developer/Programs/src/pitivi'}
-    commit = 'local/0.999.0'
+    url = "https://gitlab.gnome.org/GNOME/pitivi/-/archive/0.999.0/pitivi-0.999.0.tar.bz2"
+    # remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git'}
+    # commit = 'local/0.999.0'
 
     files_bins = ['pitivi']
     files_lang = ['pitivi']
