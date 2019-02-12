@@ -1,29 +1,27 @@
-From 6345351cad614670bb589da64dbf3387fdfef7e3 Mon Sep 17 00:00:00 2001
+From 4d77d8ab300f9f309a71e773ecc2064bc986d734 Mon Sep 17 00:00:00 2001
 From: sprhawk <465558+sprhawk@users.noreply.github.com>
-Date: Mon, 11 Feb 2019 11:18:55 +0800
-Subject: [PATCH] meson generate renderer.so on macos instead of dylib
+Date: Mon, 11 Feb 2019 11:45:10 +0800
+Subject: [PATCH] meson generate renderer.so on macOS instead of dylib
 
 ---
  meson.build | 8 ++++++++
  1 file changed, 8 insertions(+)
 
 diff --git a/meson.build b/meson.build
-index 17a7312d..cbb09677 100644
+index c4bb1940..a29c7b95 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -4,6 +4,7 @@ python = find_program('python3')
- intltool_merge = find_program('intltool-merge')
- itstool = find_program('itstool')
- msgfmt = find_program('msgfmt')
+@@ -1,4 +1,5 @@
+ project('pitivi', 'c', version : '1.90.0.1', meson_version : '>= 0.41.0')
 +host_system = host_machine.system()
  
- python_dep = dependency('python3', version : '>= 3.3')
+ python = find_program('python3')
  
-@@ -56,10 +57,17 @@ cdata.set('GITVERSION', GITVERSION)
+@@ -57,10 +58,17 @@ cdata.set('GITVERSION', GITVERSION)
  cdata.set('VERSION', meson.project_version())
  cdata.set('BUILDDIR', meson.current_build_dir())
  
-+module_suffix = ''
++module_suffix = []
 +# Python cannot import default .dylib, changed suffix to .so instead
 +if ['darwin', 'ios'].contains(host_system)
 +    module_suffix = 'so'

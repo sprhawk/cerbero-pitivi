@@ -28,6 +28,7 @@ class Recipe(recipe.Recipe):
 
     remotes = {'origin': 'https://gitlab.gnome.org/GNOME/pitivi.git'}
     commit = 'origin/master'
+    patches = [name + '/0001-meson-generate-renderer.so-on-macos-instead-of-dylib.patch']
 
     files_bins = ['pitivi']
     files_lang = ['pitivi']
